@@ -13,7 +13,7 @@ import {
   unregisterEventByUserId
 } from "../controllers/clubController";
 
-const clubRoutes = app => {
+const cluboutes = app => {
   app
     .route("/clubs")
     .get((req, res, next) => {
