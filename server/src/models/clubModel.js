@@ -58,5 +58,13 @@ export const UserSchema = new Schema({
   created_date: {
     type: Date,
     default: Date.now
-  }
+  },
+  events: [
+    {
+      eventId: { type: String },
+      eventName: { type: String },
+      clubId: { type: String },
+      clubName: { type: String }
+    }
+  ]
 });
