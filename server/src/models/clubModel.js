@@ -7,6 +7,7 @@ export const EventSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Club"
   },
+  freeFood: { type: Boolean },
   eventName: {
     type: String,
     required: "Enter a Event name"
@@ -21,6 +22,9 @@ export const EventSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  location: { type: String },
+  date: { type: String },
+  time: { type: String },
   users: [
     {
       userId: { type: String },
@@ -34,6 +38,9 @@ export const ClubSchema = new Schema({
     type: String,
     required: "Enter a club name"
   },
+  category: {
+    type: String
+  },
   description: {
     type: String
   },
@@ -43,7 +50,13 @@ export const ClubSchema = new Schema({
   created_date: {
     type: Date,
     default: Date.now
-  }
+  },
+  contacts: [
+    {
+      name: { type: String },
+      email: { type: String }
+    }
+  ]
 });
 
 export const UserSchema = new Schema({

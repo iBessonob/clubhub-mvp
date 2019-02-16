@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { ClubSchema, EventSchema, UserSchema } from "../models/clubModel";
+import {sendConfirmationEmail} from "./mailing"
 
 const Club = mongoose.model("Club", ClubSchema);
 const Event = mongoose.model("Event", EventSchema);
@@ -157,6 +158,11 @@ export const registerEventByUserId = (req, res) => {
               userName: user.userName
             });
             event.save().then(event => {
+              try {
+                sendConfirmationEmail("clubhub@mailinator.com", user.userName, event.eventName)
+              } catch (error) {
+                console.log("Fail to send confirmation mail");
+              }
               res.status(200).send(user);
             });
           });

@@ -1,11 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import routes from "./src/routes/clubRoutes";
+import clubRoutes from "./src/routes/clubRoutes";
+import userRoutes from "./src/routes/userRoutes";
 import morgan from "morgan";
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // mongoose connection
 mongoose.Promise = global.Promise;
@@ -19,7 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 
-routes(app);
+clubRoutes(app);
+userRoutes(app);
 
 // serving static files
 app.use(express.static("public"));
