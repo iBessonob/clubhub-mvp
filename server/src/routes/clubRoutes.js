@@ -36,6 +36,7 @@ const routes = app => {
     .route("/clubs/:clubid/events/:eventid")
     .get(getEventById)
     .delete(deleteEventById);
+  //.post(registerEventByUserId);
 };
 
 export default routes;
