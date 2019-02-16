@@ -9,8 +9,9 @@ const PORT = 3000;
 
 // mongoose connection
 mongoose.Promise = global.Promise;
+// mongoose.connect('mongodb+srv://ishankkm:lhdzDN29cojaXwkz@ishankmdb1-yi3zu.mongodb.net/ClubHub');
 mongoose.connect(
-  "mongodb+srv://ishankkm:lhdzDN29cojaXwkz@ishankmdb1-yi3zu.mongodb.net/ClubHub"
+  "mongodb+srv://clubhubhackuci:umE6VPOTuXfYqC1i@cluster0-aahor.mongodb.net/ClubHub?retryWrites=true"
 );
 
 // bodyparser setup
