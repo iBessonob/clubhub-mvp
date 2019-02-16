@@ -1,0 +1,7 @@
+{
+    "appName" : "clubHub",
+            
+    "mongoConfig" : {
+    	"mongoClient" : "mongodb+srv://ishankkm:lhdzDN29cojaXwkz@ishankmdb1-yi3zu.mongodb.net/test"
+    }
+}
