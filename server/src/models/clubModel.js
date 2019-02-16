@@ -20,7 +20,13 @@ export const EventSchema = new Schema({
   created_date: {
     type: Date,
     default: Date.now
-  }
+  },
+  users: [
+    {
+      userId: { type: String },
+      userName: { type: String }
+    }
+  ]
 });
 
 export const ClubSchema = new Schema({

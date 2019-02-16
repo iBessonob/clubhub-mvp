@@ -102,13 +102,14 @@ export const registerEventByUserId = (req, res) => {
     .populate("club", ["clubName", "description"])
     .then(event => {
       if (event) {
-        User.find({ _id: req.body.userId }).then(user => {
+        User.findOne({ _id: req.body.userId }).then(user => {
           user.events.push({
             eventId: event._id,
             eventName: event.eventName,
             clubId: event.club._id,
             clubName: event.club.clubName
           });
+
           user.save().then(user => res.status(200).send(user));
         });
       } else {
