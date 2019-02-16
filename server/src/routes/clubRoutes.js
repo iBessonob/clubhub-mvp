@@ -6,10 +6,18 @@ import {
   getEventById,
   getEventsById,
   addNewEvent,
-  deleteEventById
+  deleteEventById,
+  getAllUsers,
+  signUp,
+  registerEventByUserId,
+  unregisterEventByUserId
 } from "../controllers/clubController";
 
 const routes = app => {
+  app
+    .route("/users")
+    .get(getAllUsers)
+    .post(signUp);
   app
     .route("/clubs")
     .get((req, res, next) => {
@@ -36,6 +44,12 @@ const routes = app => {
     .route("/clubs/:clubid/events/:eventid")
     .get(getEventById)
     .delete(deleteEventById);
+  app
+    .route("/clubs/:clubid/events/:eventid/register")
+    .post(registerEventByUserId);
+  app
+    .route("/clubs/:clubid/events/:eventid/unregister")
+    .post(unregisterEventByUserId);
 };
 
 export default routes;

@@ -20,7 +20,13 @@ export const EventSchema = new Schema({
   created_date: {
     type: Date,
     default: Date.now
-  }
+  },
+  users: [
+    {
+      userId: { type: String },
+      userName: { type: String }
+    }
+  ]
 });
 
 export const ClubSchema = new Schema({
@@ -45,6 +51,10 @@ export const UserSchema = new Schema({
     type: String,
     required: "Enter a user name"
   },
+  password: {
+    type: String,
+    required: "Enter the password"
+  },
   email: {
     type: String
   },
@@ -56,6 +66,11 @@ export const UserSchema = new Schema({
     default: Date.now
   },
   events: [
-    EventSchema
+    {
+      eventId: { type: String },
+      eventName: { type: String },
+      clubId: { type: String },
+      clubName: { type: String }
+    }
   ]
 });
