@@ -28,61 +28,68 @@
             <ImageView
                 android:id="@+id/event_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="168dp"
                 app:srcCompat="@color/colorPrimary" />
 
             <Button
                 android:id="@+id/main_event"
                 android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:layout_height="74dp"
+                android:textSize="23sp"
                 android:text="Event Overview \n Description of Event" />
 
             <Button
                 android:id="@+id/event_1"
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:background="@drawable/roundbutton"
+                android:background="@drawable/buttonbackground"
                 android:layout_margin="20dp"
+                android:textSize="20sp"
                 android:text="Event #1: Location @ Date Time" />
 
             <Button
                 android:id="@+id/event_2"
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:background="@drawable/roundbutton"
+                android:background="@drawable/buttonbackground"
                 android:layout_margin="20dp"
+                android:textSize="20sp"
                 android:text="Event #2: Location @ Date Time" />
 
             <Button
                 android:id="@+id/event_3"
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:background="@drawable/roundbutton"
+                android:background="@drawable/buttonbackground"
                 android:layout_margin="20dp"
+                android:textSize="20sp"
                 android:text="Event #3: Location @ Date Time" />
 
             <Button
                 android:id="@+id/event_4"
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:background="@drawable/roundbutton"
+                android:background="@drawable/buttonbackground"
                 android:layout_margin="20dp"
+                android:textSize="20sp"
                 android:text="Event #4: Location @ Date Time" />
 
             <Button
                 android:id="@+id/event_5"
                 android:layout_width="match_parent"
                 android:layout_height="68dp"
-                android:background="@drawable/roundbutton"
+                android:background="@drawable/buttonbackground"
                 android:layout_margin="20dp"
+                android:textSize="20sp"
                 android:text="Event #5: Location @ Date Time" />
 
             <Button
                 android:id="@+id/event_6"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/roundbutton"
+                android:background="@drawable/buttonbackground"
                 android:layout_margin="20dp"
+                android:textSize="20sp"
                 android:text="Event #6: Location @ Date Time" />
         </LinearLayout>
     </ScrollView>

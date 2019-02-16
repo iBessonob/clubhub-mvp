@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="20dp" />
+    <!-- pressed state -->
+    <item android:drawable="@drawable/buttonpressed" android:state_pressed="true"/>
+    <!-- default state -->
+    <item android:drawable="@drawable/buttondefault"/>
+</selector>
