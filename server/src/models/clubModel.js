@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 export const EventSchema = new Schema({
-  eventId: {
-    type: Number,
-    required: "Enter a Event Id"
+  club: {
+    type: Schema.Types.ObjectId,
+    ref: "Club"
   },
   eventName: {
     type: String,
@@ -24,10 +24,6 @@ export const EventSchema = new Schema({
 });
 
 export const ClubSchema = new Schema({
-  clubId: {
-    type: Number,
-    required: "Enter a club Id"
-  },
   clubName: {
     type: String,
     required: "Enter a club name"
@@ -35,7 +31,6 @@ export const ClubSchema = new Schema({
   description: {
     type: String
   },
-  events: [EventSchema],
   phone: {
     type: Number
   },

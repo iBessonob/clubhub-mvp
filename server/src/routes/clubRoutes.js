@@ -2,7 +2,11 @@ import {
   addNewClub,
   getClubs,
   getClubById,
-  deleteClubById
+  deleteClubById,
+  getEventById,
+  getEventsById,
+  addNewEvent,
+  deleteEventById
 } from "../controllers/clubController";
 
 const routes = app => {
@@ -18,8 +22,20 @@ const routes = app => {
     // POST endpoint
     .post(addNewClub);
 
-  app.route("/clubs/:clubid").get(getClubById);
-  app.route("/club/:clubid").delete(deleteClubById);
+  app
+    .route("/clubs/:clubid")
+    .get(getClubById)
+    .delete(deleteClubById);
+
+  app
+    .route("/clubs/:clubid/events")
+    .post(addNewEvent)
+    .get(getEventsById);
+
+  app
+    .route("/clubs/:clubid/events/:eventid")
+    .get(getEventById)
+    .delete(deleteEventById);
 };
 
 export default routes;
