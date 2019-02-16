@@ -10,6 +10,10 @@ import {
 } from "../controllers/clubController";
 
 const routes = app => {
+  //   app
+  //     .route("/users")
+  //     .get(getUsers)
+  //     .post(signUp);
   app
     .route("/clubs")
     .get((req, res, next) => {
