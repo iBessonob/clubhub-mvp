@@ -20,6 +20,9 @@
         <activity android:name=".EventActivity">
         </activity>
 
+        <activity android:name=".ClubActivity">
+        </activity>
+
         <activity android:name=".OverviewActivity">
         </activity>
 
