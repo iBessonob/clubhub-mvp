@@ -97,6 +97,47 @@ export const signUp = (req, res) => {
   });
 };
 
+export const unregisterEventByUserId = (req, res) => {
+  Event.findOne({ club: req.params.clubid, _id: req.params.eventid })
+    .populate("club", ["clubName", "description"])
+    .then(event => {
+      if (event) {
+        User.findOne({ _id: req.body.userId }).then(user => {
+          const removeEvent = user.events
+            .map(event => event.eventId)
+            .indexOf(req.params.eventid);
+
+          if (removeEvent >= 0) {
+            user.events.splice(removeEvent, 1);
+            user.save().then(user => {
+              const removeUser = event.users
+                .map(user => user.userId)
+                .indexOf(req.body.userId);
+
+              if (removeUser >= 0) {
+                event.users.splice(removeUser, 1);
+                event.save().then(event => {
+                  res.status(200).send(user);
+                });
+              } else {
+                res
+                  .status(200)
+                  .send({ user: "This event does not contain the user" });
+              }
+            });
+          } else {
+            res
+              .status(404)
+              .send({ event: "The user does not register this event" });
+          }
+        });
+      } else {
+        res.status(200).send({ event: "Cannot find the event from this club" });
+      }
+    })
+    .catch(err => res.status(404).send(err));
+};
+
 export const registerEventByUserId = (req, res) => {
   Event.findOne({ club: req.params.clubid, _id: req.params.eventid })
     .populate("club", ["clubName", "description"])
@@ -110,7 +151,15 @@ export const registerEventByUserId = (req, res) => {
             clubName: event.club.clubName
           });
 
-          user.save().then(user => res.status(200).send(user));
+          user.save().then(user => {
+            event.users.push({
+              userId: req.body.userId,
+              userName: user.userName
+            });
+            event.save().then(event => {
+              res.status(200).send(user);
+            });
+          });
         });
       } else {
         res.status(200).send({ event: "Cannot find the event from this club" });
