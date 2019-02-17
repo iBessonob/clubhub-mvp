@@ -11,3 +11,6 @@
 /build
 /captures
 .externalNativeBuild
+sendgrid.env
+/node_modules
+/server/node_modules
