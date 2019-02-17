@@ -21,10 +21,6 @@ app.use(morgan("dev"));
 
 clubRoutes(app);
 userRoutes(app);
-<<<<<<< HEAD:server/index.js
-
-=======
->>>>>>> 66e88900ca09f1491c3374dc5040ec7782e82c4b:index.js
 // serving static files
 app.use(express.static("public"));
 
